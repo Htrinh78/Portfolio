@@ -1,0 +1,20 @@
+---
+title: "Trinh_decision_log"
+format: html
+author: Huong Trinh
+date: today
+toc: true
+toc-depth: 2
+number-sections: false
+theme: cosmo
+---
+
+## a08: Working with Spatial Data in R
+
+### Decision 1: Use Alaska Albers for the spatial join
+
+One decision I made was to change the CRS of the population points and the Alaska region polygons before doing the spatial join. The population points first used latitude and longitude, but the Alaska region polygons were changed to EPSG 3338, Alaska Albers. Before I used `st_join()`, I made sure both spatial objects were using the same CRS. I made this decision because spatial data need to line up in the same coordinate system. If the points and polygons use different CRS, R may not understand their locations in the same way, and the join can give an error or wrong result. Since this assignment is about Alaska, EPSG 3338 is also a good choice because it is made for mapping Alaska better than regular longitude and latitude. This step was important because I wanted each city point to match with the correct Alaska region. After changing the CRS, the point-in-polygon join became more clear and reliable.
+
+### Decision 2: Use `st_within` instead of `st_intersects`
+
+Another decision I made was to use `st_within` when joining the city population points to the Alaska region polygons. I chose this because the question is asking which region each city belongs to. The cities are point data, and the regions are polygon data, so I needed to check which polygon contains each point. I thought `st_within` matched this question better than `st_intersects`. `st_intersects` is more general because it can mean two shapes touch or overlap. For this assignment, I did not just want to know if the point and polygon touch in some way. I wanted to know if the city point is inside the region polygon. Using `st_within` helped me connect each city with its region. Then I could summarize the population by region and make the maps for the assignment.
