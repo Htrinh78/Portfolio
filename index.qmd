@@ -1,12 +1,32 @@
 ---
-title: "Portfolio"
-listing:
-  contents: assignments
-  sort: "date asc"
-  fields: [title, date]
+title: "Data Science Portfolio"
+author: Huong Trinh
+date: today
+format:
+  html:
+    toc: true
+    toc-depth: 2
 ---
 
-Welcome!  
-This is my portfolio for learning **R, data analysis, GitHub, and Quarto**.
+## Welcome
 
-## Assignments
+Hello, my name is Huong Trinh. I am a chemistry and biochemistry student interested in enzyme biochemistry, biocatalysis, protein engineering, and data science. This portfolio shows selected assignments from my data science course using RStudio, Quarto, Git, GitHub, and GitHub Pages.
+
+
+## Course Lessons
+
+- Introduction to Literate Analysis Using Quarto
+- Tidy Data
+- Cleaning and Wrangling Data
+- Data Visualization
+- Spatial Data
+
+## Selected Assignments
+
+- [Assignment a07: Collaborating with Git and GitHub](assignments/lobster_report.html)
+- [Assignment a08: Spatial Data](assignments/intro-to-spatial-data.html)
+- [Decision Log](assignments/Trinh_decision_Log.html)
+
+## About This Portfolio
+
+These pages were written in Quarto and rendered as HTML files. The website is published using GitHub Pages.
