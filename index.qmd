@@ -23,7 +23,6 @@ Hello, my name is Huong Trinh. I am a chemistry and biochemistry student interes
 
 ## Selected Assignments
 
-- [Assignment a07: Collaborating with Git and GitHub](assignments/lobster_report.html)
 - [Assignment a08: Spatial Data](assignments/intro-to-spatial-data.html)
 - [Decision Log](assignments/Trinh_decision_Log.html)
 
