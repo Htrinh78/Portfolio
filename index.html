@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thi Thu Huong Trinh | Biochemistry Researcher</title>
+  <style>
+    :root {
+      --navy: #1a2b4a;
+      --teal: #2a7f7f;
+      --teal-light: #3aa8a8;
+      --gold: #c9963a;
+      --bg: #f8f9fc;
+      --card: #ffffff;
+      --text: #2d3748;
+      --muted: #718096;
+      --border: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── HERO ── */
+    header {
+      background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 60%, var(--teal) 100%);
+      color: white;
+      padding: 80px 24px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .avatar {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      background: var(--teal-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.4rem; font-weight: 700; color: white;
+      margin: 0 auto 20px;
+      border: 4px solid rgba(255,255,255,0.3);
+      position: relative;
+    }
+    header h1 { font-size: 2.4rem; font-weight: 700; letter-spacing: 0.5px; }
+    header .subtitle {
+      font-size: 1.1rem; margin-top: 6px;
+      color: rgba(255,255,255,0.82);
+      font-weight: 400;
+    }
+    .contact-bar {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      justify-content: center; margin-top: 24px;
+    }
+    .contact-bar a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      background: rgba(255,255,255,0.12);
+      padding: 6px 16px; border-radius: 99px;
+      font-size: 0.88rem;
+      transition: background 0.2s;
+    }
+    .contact-bar a:hover { background: rgba(255,255,255,0.22); }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--navy);
+      display: flex; justify-content: center; gap: 0;
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 2px solid var(--teal);
+    }
+    nav a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      padding: 14px 22px;
+      font-size: 0.88rem; font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    nav a:hover { color: white; background: rgba(255,255,255,0.08); }
+
+    /* ── LAYOUT ── */
+    main { max-width: 900px; margin: 0 auto; padding: 48px 24px 80px; }
+
+    section { margin-bottom: 60px; }
+
+    h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--teal);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 10px;
+      margin-bottom: 24px;
+    }
+
+    /* ── ABOUT ── */
+    .about-text {
+      font-size: 1.05rem;
+      color: var(--text);
+      background: var(--card);
+      border-left: 4px solid var(--teal);
+      padding: 20px 24px;
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.09);
+      transform: translateY(-1px);
+    }
+    .card-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      flex-wrap: wrap; gap: 8px;
+    }
+    .card-title { font-size: 1.05rem; font-weight: 700; color: var(--navy); }
+    .card-sub { font-size: 0.9rem; color: var(--teal); margin-top: 2px; font-style: italic; }
+    .badge {
+      background: var(--navy);
+      color: white;
+      font-size: 0.78rem; font-weight: 600;
+      padding: 3px 12px; border-radius: 99px;
+      white-space: nowrap;
+    }
+    .card ul {
+      margin-top: 12px; padding-left: 18px;
+      color: var(--text); font-size: 0.95rem;
+    }
+    .card ul li { margin-bottom: 5px; }
+    .ms-tag {
+      display: inline-block;
+      background: #e6f3f3; color: var(--teal);
+      font-size: 0.78rem; font-weight: 600;
+      padding: 2px 10px; border-radius: 99px;
+      margin-left: 8px; vertical-align: middle;
+    }
+
+    /* ── RESEARCH HIGHLIGHT ── */
+    .highlight-card {
+      background: linear-gradient(135deg, #eaf5f5, #f0f4ff);
+      border: 1px solid #b2d8d8;
+      border-radius: 10px;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+    .highlight-card h3 {
+      font-size: 1.08rem; color: var(--navy); font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .highlight-card p { font-size: 0.95rem; color: var(--text); }
+    .manuscript-note {
+      display: inline-block;
+      margin-top: 12px;
+      background: var(--gold);
+      color: white;
+      font-size: 0.8rem; font-weight: 600;
+      padding: 4px 14px; border-radius: 99px;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .skill-group {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .skill-group h4 {
+      font-size: 0.82rem;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--teal); font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-tag {
+      background: #eef2ff; color: #3730a3;
+      font-size: 0.78rem; padding: 3px 10px;
+      border-radius: 99px; font-weight: 500;
+    }
+    .skill-tag.mol { background: #fef3c7; color: #92400e; }
+    .skill-tag.spec { background: #ecfdf5; color: #065f46; }
+    .skill-tag.enz { background: #fce7f3; color: #9d174d; }
+    .skill-tag.comp { background: #ede9fe; color: #5b21b6; }
+
+    /* ── AWARDS ── */
+    .award-item {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .award-icon {
+      font-size: 1.5rem; flex-shrink: 0; margin-top: 2px;
+    }
+    .award-item strong { color: var(--navy); display: block; font-size: 0.98rem; }
+    .award-item span { color: var(--muted); font-size: 0.88rem; }
+
+    /* ── PRESENTATIONS ── */
+    .pres-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .pres-venue {
+      display: inline-block;
+      background: #f0f4ff;
+      color: var(--navy);
+      font-size: 0.8rem; font-weight: 600;
+      padding: 2px 10px; border-radius: 99px;
+      margin: 6px 4px 0 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 24px;
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--teal-light); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.7rem; }
+      nav a { padding: 12px 12px; font-size: 0.78rem; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<header>
+  <div class="avatar">TT</div>
+  <h1>Thi Thu Huong Trinh</h1>
+  <p class="subtitle">M.S. Candidate in Biochemistry &nbsp;·&nbsp; San Francisco State University</p>
+  <div class="contact-bar">
+    <a href="mailto:huongtrinh7888@gmail.com">✉ huongtrinh7888@gmail.com</a>
+    <a href="tel:4158768502">📞 (415) 876-8502</a>
+    <a href="https://linkedin.com/in/thithuhuongtrinh" target="_blank">🔗 LinkedIn</a>
+    <a href="#">📍 San Francisco, CA</a>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="#about">About</a>
+  <a href="#research">Research</a>
+  <a href="#education">Education</a>
+  <a href="#skills">Skills</a>
+  <a href="#awards">Awards</a>
+  <a href="#presentations">Talks</a>
+</nav>
+
+<main>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About</h2>
+    <p class="about-text">
+      I am a Biochemistry M.S. candidate at San Francisco State University with hands-on expertise in metalloenzyme characterization, membrane protein purification, and redox chemistry. My research focuses on integrating Styrene Oxide Isomerase (SOI) — a membrane-associated heme enzyme — into a cell-free biosynthetic pathway for penicillin production. I am experienced in site-directed mutagenesis, anaerobic UV-Vis spectroscopy, steady-state kinetics, and coupled enzyme assay design, with a passion for bridging enzymology and synthetic biology.
+    </p>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <h2>Research</h2>
+
+    <div class="highlight-card">
+      <h3>Thesis Project — Integrating Styrene Oxide Isomerase into a Cell-Free Pathway for Penicillin Synthesis</h3>
+      <p>
+        Styrene oxide isomerase (SOI) is a membrane-associated heme enzyme that catalyzes the isomerization of styrene oxide to phenylacetaldehyde — a key step in a cell-free penicillin biosynthesis route. My thesis work characterizes the enzyme's electrochemical properties, active-site requirements, and functional integration with downstream biosynthetic enzymes.
+      </p>
+      <span class="manuscript-note">📄 Manuscript in Preparation</span>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Graduate Research Assistant &nbsp;<span class="ms-tag">M.S. Thesis</span></div>
+          <div class="card-sub">Gassner Lab · Dept. of Chemistry &amp; Biochemistry, SFSU · Advisor: Dr. Georg Gassner</div>
+        </div>
+        <span class="badge">Sept 2024 – Present</span>
+      </div>
+      <ul>
+        <li>Expressed and purified SOI using detergent-based solubilization and FPLC affinity chromatography.</li>
+        <li>Performed site-directed mutagenesis (Q5 kit) on SOI active-site residues to probe catalytic function.</li>
+        <li>Conducted steady-state kinetic assays evaluating SOI catalytic efficiency across multiple styrene oxide substrates.</li>
+        <li>Performed anaerobic UV-Vis spectroscopy and redox titrations to determine the heme cofactor midpoint potential.</li>
+        <li>Developed coupled multi-enzyme assays; used HPLC and bioassays to validate a cell-free penicillin biosynthesis pathway.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2>Education</h2>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">M.S. Biochemistry</div>
+          <div class="card-sub">San Francisco State University &nbsp;·&nbsp; GPA 3.7 / 4.0</div>
+        </div>
+        <span class="badge">Expected Dec 2026</span>
+      </div>
+      <p style="margin-top:10px; font-size:0.93rem; color:var(--muted);">
+        <strong style="color:var(--text);">Thesis:</strong> Integrating Styrene Oxide Isomerase into a Cell-Free Pathway for Penicillin Synthesis
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">B.S. Biochemistry &nbsp;|&nbsp; Minor: Computing Applications (PINC)</div>
+          <div class="card-sub">San Francisco State University</div>
+        </div>
+        <span class="badge">May 2025</span>
+      </div>
+      <p style="margin-top:10px; font-size:0.93rem; color:var(--muted);">
+        Graduated <strong style="color:var(--gold);">Magna Cum Laude</strong> &nbsp;·&nbsp; Dean's List &nbsp;·&nbsp; GEN-PINC Scholarship
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+
+      <div class="skill-group">
+        <h4>Protein Biochemistry</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">FPLC</span>
+          <span class="skill-tag">Affinity Chromatography</span>
+          <span class="skill-tag">SDS-PAGE</span>
+          <span class="skill-tag">Bradford Assay</span>
+          <span class="skill-tag">Membrane Protein Solubilization</span>
+          <span class="skill-tag">E. coli Expression</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Molecular Biology</h4>
+        <div class="skill-tags">
+          <span class="skill-tag mol">Site-Directed Mutagenesis (Q5)</span>
+          <span class="skill-tag mol">PCR</span>
+          <span class="skill-tag mol">Bacterial Transformation</span>
+          <span class="skill-tag mol">Plasmid Miniprep</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Spectroscopy &amp; Analytical</h4>
+        <div class="skill-tags">
+          <span class="skill-tag spec">UV-Vis (Soret/Q-band)</span>
+          <span class="skill-tag spec">Stopped-Flow Spectroscopy</span>
+          <span class="skill-tag spec">Anaerobic Techniques</span>
+          <span class="skill-tag spec">HPLC</span>
+          <span class="skill-tag spec">Spectral Deconvolution</span>
+          <span class="skill-tag spec">Microplate Reader Kinetics</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Enzymology</h4>
+        <div class="skill-tags">
+          <span class="skill-tag enz">Steady-State Kinetics</span>
+          <span class="skill-tag enz">Coupled Enzyme Assays</span>
+          <span class="skill-tag enz">Redox Titrations</span>
+          <span class="skill-tag enz">Substrate Specificity Assays</span>
+          <span class="skill-tag enz">Midpoint Potential</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Computational</h4>
+        <div class="skill-tags">
+          <span class="skill-tag comp">Python</span>
+          <span class="skill-tag comp">R</span>
+          <span class="skill-tag comp">GitHub</span>
+          <span class="skill-tag comp">PyMOL</span>
+          <span class="skill-tag comp">UCSF Chimera</span>
+          <span class="skill-tag comp">KaleidaGraph</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section id="awards">
+    <h2>Awards &amp; Honors</h2>
+
+    <div class="award-item">
+      <div class="award-icon">🏆</div>
+      <div>
+        <strong>Most Innovative Project Poster Award</strong>
+        <span>2026 Northern Regional CSU Biotechnology Symposium &nbsp;·&nbsp; Sacramento, CA &nbsp;·&nbsp; Jan 2026</span>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-icon">🎖️</div>
+      <div>
+        <strong>Excellence in Undergraduate Biochemistry Research Award</strong>
+        <span>SFSU Dept. of Chemistry &amp; Biochemistry &nbsp;·&nbsp; May 2026</span>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-icon">🎓</div>
+      <div>
+        <strong>Graduated Magna Cum Laude &nbsp;|&nbsp; Dean's List &nbsp;|&nbsp; GEN-PINC Scholarship</strong>
+        <span>San Francisco State University &nbsp;·&nbsp; May 2025</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESENTATIONS -->
+  <section id="presentations">
+    <h2>Presentations</h2>
+
+    <div class="pres-item">
+      <div>
+        <strong>Trinh, T.H.</strong> "Integrating Styrene Oxide Isomerase into a Cell-Free Pathway for Penicillin Synthesis." <em>Poster presentation.</em>
+      </div>
+      <div>
+        <span class="pres-venue">📍 CSU Biotech Symposium — Jan 2026</span>
+        <span class="pres-venue">📍 MILER Symposium, UC Davis — Mar 2026</span>
+        <span class="pres-venue">📍 COSE Research Symposium, SFSU — Apr 2026</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Thi Thu Huong Trinh &nbsp;·&nbsp; <a href="mailto:huongtrinh7888@gmail.com">huongtrinh7888@gmail.com</a> &nbsp;·&nbsp; <a href="https://linkedin.com/in/thithuhuongtrinh" target="_blank">LinkedIn</a></p>
+</footer>
+
+</body>
+</html>
